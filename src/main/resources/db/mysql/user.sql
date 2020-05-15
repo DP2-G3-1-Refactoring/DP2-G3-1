@@ -1,7 +1,7 @@
-CREATE DATABASE IF NOT EXISTS petclinic;
+CREATE DATABASE IF NOT EXISTS footballmanager;
 
-ALTER DATABASE petclinic
+ALTER DATABASE footballmanager
   DEFAULT CHARACTER SET utf8
   DEFAULT COLLATE utf8_general_ci;
 
-GRANT ALL PRIVILEGES ON petclinic.* TO 'petclinic@%' IDENTIFIED BY 'petclinic';
+GRANT ALL PRIVILEGES ON footballmanager.* TO 'footballmanager@%' IDENTIFIED BY 'footballmanager';

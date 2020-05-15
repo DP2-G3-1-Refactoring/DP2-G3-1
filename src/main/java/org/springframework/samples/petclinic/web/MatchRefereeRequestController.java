@@ -224,7 +224,7 @@ public class MatchRefereeRequestController {
 		MatchRecord mr = new MatchRecord();
 
 		mr.setTitle(match.getTitle() + " Record");
-		mr.setMatch(match);
+		mr.setMatch_id(match);
 		mr.setStatus(MatchRecordStatus.NOT_PUBLISHED);
 
 		this.matchRecordService.saveMatchRecord(mr);

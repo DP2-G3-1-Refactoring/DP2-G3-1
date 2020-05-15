@@ -164,7 +164,7 @@ public class FootballPlayerMatchStatisticTests {
 		MatchRecord mr = new MatchRecord();
 
 		mr.setId(100);
-		mr.setMatch(m);
+		mr.setMatch_id(m);
 		mr.setResult("Test");
 		mr.setSeason_end("0000");
 		mr.setSeason_start("0000");
@@ -197,7 +197,7 @@ public class FootballPlayerMatchStatisticTests {
 		MatchRecord mr = new MatchRecord();
 
 		mr.setId(100);
-		mr.setMatch(m);
+		mr.setMatch_id(m);
 		mr.setResult("result");
 		mr.setSeason_end("0000");
 		mr.setSeason_start("0000");
@@ -235,7 +235,7 @@ public class FootballPlayerMatchStatisticTests {
 		MatchRecord mr = new MatchRecord();
 
 		mr.setId(100);
-		mr.setMatch(m);
+		mr.setMatch_id(m);
 		mr.setResult("Test");
 		mr.setSeason_end("0000");
 		mr.setSeason_start("0000");

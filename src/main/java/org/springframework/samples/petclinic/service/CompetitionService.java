@@ -153,11 +153,11 @@ public class CompetitionService {
 
 	public void createRoundFinish(final MatchRecord mr) throws IllegalDateException, MatchRecordResultException {
 
-		List<Match> lm = this.matchService.findMatchByRoundId(mr.getMatch().getRound().getId());
+		List<Match> lm = this.matchService.findMatchByRoundId(mr.getMatch_id().getRound().getId());
 
 		//Comprobamos si es un partido de playoff y que no es una ronda final
-		if (!mr.getMatch().getRound().equals(null) && lm.size() != 1) {
-			Round r = mr.getMatch().getRound();
+		if (!mr.getMatch_id().getRound().equals(null) && lm.size() != 1) {
+			Round r = mr.getMatch_id().getRound();
 			Boolean res = false;
 			List<String> winners = new ArrayList<>();
 
@@ -233,7 +233,7 @@ public class CompetitionService {
 
 			MatchRecord newRecord = new MatchRecord();
 
-			newRecord.setMatch(newMatch);
+			newRecord.setMatch_id(newMatch);
 			newRecord.setSeason_start("2020");
 			newRecord.setSeason_end("2021");
 			newRecord.setTitle("Acta del partido: " + fc1.getName() + " - " + fc2.getName() + " de " + r1.getName() + "de " + c.getName());

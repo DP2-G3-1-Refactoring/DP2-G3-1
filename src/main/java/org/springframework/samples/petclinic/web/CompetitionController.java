@@ -474,7 +474,7 @@ public class CompetitionController {
 
 					MatchRecord newRecord = new MatchRecord();
 
-					newRecord.setMatch(newMatch);
+					newRecord.setMatch_id(newMatch);
 					newRecord.setSeason_start("2020");
 					newRecord.setSeason_end("2021");
 					newRecord.setTitle("Acta del partido: " + club.getName() + " - " + club2.getName() + " de la " + a.getName());

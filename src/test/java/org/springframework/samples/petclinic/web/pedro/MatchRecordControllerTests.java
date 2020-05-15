@@ -152,7 +152,7 @@ public class MatchRecordControllerTests {
 		this.matchRecord.setSeason_start("2019");
 		this.matchRecord.setStatus(MatchRecordStatus.NOT_PUBLISHED);
 		this.matchRecord.setResult("Test result");
-		this.matchRecord.setMatch(match);
+		this.matchRecord.setMatch_id(match);
 
 		BDDMockito.given(this.matchRecordService.findMatchRecordById(100)).willReturn(this.matchRecord);
 

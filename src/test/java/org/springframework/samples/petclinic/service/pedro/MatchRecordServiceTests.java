@@ -12,10 +12,10 @@ import org.springframework.dao.InvalidDataAccessApiUsageException;
 import org.springframework.samples.petclinic.model.Match;
 import org.springframework.samples.petclinic.model.MatchRecord;
 import org.springframework.samples.petclinic.model.Enum.MatchRecordStatus;
-import org.springframework.samples.petclinic.service.exceptions.IllegalDateException;
-import org.springframework.samples.petclinic.service.exceptions.MatchRecordResultException;
 import org.springframework.samples.petclinic.service.MatchRecordService;
 import org.springframework.samples.petclinic.service.MatchService;
+import org.springframework.samples.petclinic.service.exceptions.IllegalDateException;
+import org.springframework.samples.petclinic.service.exceptions.MatchRecordResultException;
 import org.springframework.stereotype.Service;
 
 @DataJpaTest(includeFilters = @ComponentScan.Filter(Service.class))
@@ -92,7 +92,7 @@ public class MatchRecordServiceTests {
 		MatchRecord mr = new MatchRecord();
 
 		mr.setId(100);
-		mr.setMatch(m);
+		mr.setMatch_id(m);
 		mr.setResult("Test");
 		mr.setSeason_end("2021");
 		mr.setSeason_start("2020");
@@ -110,7 +110,7 @@ public class MatchRecordServiceTests {
 		MatchRecord mr = new MatchRecord();
 
 		mr.setId(100);
-		mr.setMatch(m);
+		mr.setMatch_id(m);
 		mr.setResult("Test");
 		mr.setSeason_end("2020");
 		mr.setSeason_start("2019");
@@ -130,7 +130,7 @@ public class MatchRecordServiceTests {
 		MatchRecord mr = new MatchRecord();
 
 		mr.setId(100);
-		mr.setMatch(m);
+		mr.setMatch_id(m);
 		mr.setResult("Test");
 		mr.setSeason_end("0000");
 		mr.setSeason_start("0000");
@@ -150,7 +150,7 @@ public class MatchRecordServiceTests {
 		MatchRecord mr = new MatchRecord();
 
 		mr.setId(100);
-		mr.setMatch(m);
+		mr.setMatch_id(m);
 		mr.setResult("");
 		mr.setSeason_end("2021");
 		mr.setSeason_start("2020");
@@ -170,7 +170,7 @@ public class MatchRecordServiceTests {
 		MatchRecord mr = new MatchRecord();
 
 		mr.setId(100);
-		mr.setMatch(m);
+		mr.setMatch_id(m);
 		mr.setResult("Test");
 		mr.setSeason_end("2021");
 		mr.setSeason_start("2020");

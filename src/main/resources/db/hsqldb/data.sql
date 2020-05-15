@@ -361,8 +361,8 @@ INSERT INTO football_player_statistic(id, assists, goals, yellow_cards, red_card
 INSERT INTO football_player_statistic(id, assists, goals, yellow_cards, red_cards, received_goals, season_start, season_end, football_player_id) VALUES(64, 0, 0, 0, 0, 0, 2019, 2020, 64);
 
 -- Match Records
-INSERT INTO match_record(id, title, status, season_end, season_start, result, match) VALUES(0, 'title 0', 0, '2020', '2019', '', 0);
-INSERT INTO match_record(id, title, status, season_end, season_start, result, match) VALUES(1, 'title 1', 0, '2020', '2019', 'result', 2);
+INSERT INTO match_record(id, title, status, season_end, season_start, result, match_id) VALUES(0, 'title 0', 0, '2020', '2019', '', 0);
+INSERT INTO match_record(id, title, status, season_end, season_start, result, match_id) VALUES(1, 'title 1', 0, '2020', '2019', 'result', 2);
 
 
 -- Football Player Match Statistics
@@ -432,8 +432,8 @@ INSERT INTO matches(id, title, match_date, match_status, stadium, football_Club1
 
 
 --Match Records for Round
-INSERT INTO match_record(id, title, status, season_end, season_start, result,winner, match) VALUES(2, 'title 1', 1, '2020', '2019', '1-0','Sevilla Fútbol Club', 5);
-INSERT INTO match_record(id, title, status, season_end, season_start, result,winner, match) VALUES(3, 'title 1', 1, '2020', '2019', '3-2','Valencia Club de Fútbol', 6);
-INSERT INTO match_record(id, title, status, season_end, season_start, result,winner, match) VALUES(4, 'title 1', 1, '2020', '2019', '3-4','Liverpool Football Club', 7);
-INSERT INTO match_record(id, title, status, season_end, season_start, result, winner,match) VALUES(5, 'title 1', 0, '2020', '2019', '0-2','Fútbol Club Barcelona', 8);
+INSERT INTO match_record(id, title, status, season_end, season_start, result, winner, match_id) VALUES(2, 'title 1', 1, '2020', '2019', '1-0','Sevilla Fútbol Club', 5);
+INSERT INTO match_record(id, title, status, season_end, season_start, result, winner, match_id) VALUES(3, 'title 1', 1, '2020', '2019', '3-2','Valencia Club de Fútbol', 6);
+INSERT INTO match_record(id, title, status, season_end, season_start, result, winner, match_id) VALUES(4, 'title 1', 1, '2020', '2019', '3-4','Liverpool Football Club', 7);
+INSERT INTO match_record(id, title, status, season_end, season_start, result, winner, match_id) VALUES(5, 'title 1', 0, '2020', '2019', '0-2','Fútbol Club Barcelona', 8);
 

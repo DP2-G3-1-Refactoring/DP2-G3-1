@@ -17,11 +17,11 @@ public interface SpringDataMatchRecordRepository extends MatchRecordRepository, 
 	MatchRecord findMatchRecordById(@Param("id") int id) throws DataAccessException;
 
 	@Override
-	@Query("SELECT a FROM MatchRecord a WHERE a.match.id =:match_id")
+	@Query("SELECT a FROM MatchRecord a WHERE a.match_id.id =:match_id")
 	MatchRecord findMatchRecordByMatchId(@Param("match_id") int match_id) throws DataAccessException;
 
 	@Override
-	@Query("select m from MatchRecord m where m.match.footballClub1.id = ?1 or m.match.footballClub2.id = ?1 order by m.match.matchDate")
+	@Query("select m from MatchRecord m where m.match_id.footballClub1.id = ?1 or m.match_id.footballClub2.id = ?1 order by m.match_id.matchDate")
 	Collection<MatchRecord> findLastMatches(int club_id);
 
 }

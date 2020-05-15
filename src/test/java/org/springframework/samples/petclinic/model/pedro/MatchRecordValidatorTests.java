@@ -34,7 +34,7 @@ public class MatchRecordValidatorTests {
 		mr.setStatus(MatchRecordStatus.NOT_PUBLISHED);
 		mr.setSeason_end("2000");
 		mr.setSeason_start("2000");
-		mr.setMatch(null);
+		mr.setMatch_id(null);
 
 		Validator validator = this.createValidator();
 		Set<ConstraintViolation<MatchRecord>> constraintViolations = validator.validate(mr);
@@ -60,7 +60,7 @@ public class MatchRecordValidatorTests {
 		mr.setStatus(null);
 		mr.setSeason_end("2000");
 		mr.setSeason_start("2000");
-		mr.setMatch(null);
+		mr.setMatch_id(null);
 
 		Validator validator = this.createValidator();
 		Set<ConstraintViolation<MatchRecord>> constraintViolations = validator.validate(mr);
@@ -86,7 +86,7 @@ public class MatchRecordValidatorTests {
 		mr.setStatus(MatchRecordStatus.NOT_PUBLISHED);
 		mr.setSeason_end("2020");
 		mr.setSeason_start("1");
-		mr.setMatch(null);
+		mr.setMatch_id(null);
 
 		Validator validator = this.createValidator();
 		Set<ConstraintViolation<MatchRecord>> constraintViolations = validator.validate(mr);
@@ -112,7 +112,7 @@ public class MatchRecordValidatorTests {
 		mr.setStatus(MatchRecordStatus.NOT_PUBLISHED);
 		mr.setSeason_end("1");
 		mr.setSeason_start("2020");
-		mr.setMatch(null);
+		mr.setMatch_id(null);
 
 		Validator validator = this.createValidator();
 		Set<ConstraintViolation<MatchRecord>> constraintViolations = validator.validate(mr);
@@ -138,7 +138,7 @@ public class MatchRecordValidatorTests {
 		mr.setStatus(MatchRecordStatus.NOT_PUBLISHED);
 		mr.setSeason_end("2019");
 		mr.setSeason_start("2020");
-		mr.setMatch(null);
+		mr.setMatch_id(null);
 
 		Validator validator = this.createValidator();
 		Set<ConstraintViolation<MatchRecord>> constraintViolations = validator.validate(mr);

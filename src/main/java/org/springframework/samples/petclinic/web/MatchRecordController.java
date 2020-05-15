@@ -102,7 +102,7 @@ public class MatchRecordController {
 
 				Match m = this.matchService.findMatchById(matchId);
 
-				matchRecord.setMatch(m);
+				matchRecord.setMatch_id(m);
 
 				this.matchRecordService.saveMatchRecord(matchRecord);
 
@@ -125,10 +125,10 @@ public class MatchRecordController {
 		String currentPrincipalName = authentication.getName();
 
 		MatchRecord mr = this.matchRecordService.findMatchRecordByMatchId(matchId);
-		Match m = this.matchService.findMatchById(mr.getMatch().getId());
+		Match m = this.matchService.findMatchById(mr.getMatch_id().getId());
 
 		// Si intenta editarlo alguien que no sea su árbitroo
-		if (mr.getMatch().getReferee().getUser().getUsername().compareTo(currentPrincipalName) != 0) {
+		if (mr.getMatch_id().getReferee().getUser().getUsername().compareTo(currentPrincipalName) != 0) {
 			throw new CredentialException();
 		}
 
@@ -183,7 +183,7 @@ public class MatchRecordController {
 				MatchRecord mr = this.matchRecordService.findMatchRecordByMatchId(matchId);
 
 				matchRecord.setId(mr.getId());
-				matchRecord.setMatch(mr.getMatch());
+				matchRecord.setMatch_id(mr.getMatch_id());
 				if (matchRecord.getSeason_start() != null && !matchRecord.getSeason_start().isEmpty()) {
 					Integer i = Integer.parseInt(matchRecord.getSeason_start()) + 1;
 					matchRecord.setSeason_end(i.toString());
@@ -242,7 +242,7 @@ public class MatchRecordController {
 		MatchRecord mr = this.matchRecordService.findMatchRecordByMatchId(matchId);
 
 		// Si intenta editarlo alguien que no sea su árbitroo
-		if (mr.getMatch().getReferee().getUser().getUsername().compareTo(currentPrincipalName) != 0) {
+		if (mr.getMatch_id().getReferee().getUser().getUsername().compareTo(currentPrincipalName) != 0) {
 			throw new CredentialException();
 		}
 
@@ -268,7 +268,7 @@ public class MatchRecordController {
 
 		FootballPlayerMatchStatistic fpms = this.footballPlayerMatchStatisticService.findFootballPlayerMatchStatisticByPlayerIdAndMatchRecordId(playerId, matchRecordId);
 
-		if (!fpms.getMatchRecord().getMatch().getReferee().getUser().getUsername().equals(currentPrincipalName)) {
+		if (!fpms.getMatchRecord().getMatch_id().getReferee().getUser().getUsername().equals(currentPrincipalName)) {
 			throw new CredentialException();
 		}
 
@@ -276,7 +276,7 @@ public class MatchRecordController {
 
 		this.footballPlayerMatchStatisticService.saveFootballPlayerStatistic(fpms);
 
-		return "redirect:/matches/matchRecord/" + fpms.getMatchRecord().getMatch().getId() + "/view";
+		return "redirect:/matches/matchRecord/" + fpms.getMatchRecord().getMatch_id().getId() + "/view";
 	}
 
 	@RequestMapping(value = "/matches/matchRecord/goal/substract/{matchRecordId}/{playerId}")
@@ -287,7 +287,7 @@ public class MatchRecordController {
 
 		FootballPlayerMatchStatistic fpms = this.footballPlayerMatchStatisticService.findFootballPlayerMatchStatisticByPlayerIdAndMatchRecordId(playerId, matchRecordId);
 
-		if (!fpms.getMatchRecord().getMatch().getReferee().getUser().getUsername().equals(currentPrincipalName)) {
+		if (!fpms.getMatchRecord().getMatch_id().getReferee().getUser().getUsername().equals(currentPrincipalName)) {
 			throw new CredentialException();
 		}
 
@@ -299,7 +299,7 @@ public class MatchRecordController {
 
 		this.footballPlayerMatchStatisticService.saveFootballPlayerStatistic(fpms);
 
-		return "redirect:/matches/matchRecord/" + fpms.getMatchRecord().getMatch().getId() + "/view";
+		return "redirect:/matches/matchRecord/" + fpms.getMatchRecord().getMatch_id().getId() + "/view";
 	}
 
 	@RequestMapping(value = "/matches/matchRecord/assist/add/{matchRecordId}/{playerId}")
@@ -310,7 +310,7 @@ public class MatchRecordController {
 
 		FootballPlayerMatchStatistic fpms = this.footballPlayerMatchStatisticService.findFootballPlayerMatchStatisticByPlayerIdAndMatchRecordId(playerId, matchRecordId);
 
-		if (!fpms.getMatchRecord().getMatch().getReferee().getUser().getUsername().equals(currentPrincipalName)) {
+		if (!fpms.getMatchRecord().getMatch_id().getReferee().getUser().getUsername().equals(currentPrincipalName)) {
 			throw new CredentialException();
 		}
 
@@ -318,7 +318,7 @@ public class MatchRecordController {
 
 		this.footballPlayerMatchStatisticService.saveFootballPlayerStatistic(fpms);
 
-		return "redirect:/matches/matchRecord/" + fpms.getMatchRecord().getMatch().getId() + "/view";
+		return "redirect:/matches/matchRecord/" + fpms.getMatchRecord().getMatch_id().getId() + "/view";
 	}
 
 	@RequestMapping(value = "/matches/matchRecord/assist/substract/{matchRecordId}/{playerId}")
@@ -329,7 +329,7 @@ public class MatchRecordController {
 
 		FootballPlayerMatchStatistic fpms = this.footballPlayerMatchStatisticService.findFootballPlayerMatchStatisticByPlayerIdAndMatchRecordId(playerId, matchRecordId);
 
-		if (!fpms.getMatchRecord().getMatch().getReferee().getUser().getUsername().equals(currentPrincipalName)) {
+		if (!fpms.getMatchRecord().getMatch_id().getReferee().getUser().getUsername().equals(currentPrincipalName)) {
 			throw new CredentialException();
 		}
 
@@ -341,7 +341,7 @@ public class MatchRecordController {
 
 		this.footballPlayerMatchStatisticService.saveFootballPlayerStatistic(fpms);
 
-		return "redirect:/matches/matchRecord/" + fpms.getMatchRecord().getMatch().getId() + "/view";
+		return "redirect:/matches/matchRecord/" + fpms.getMatchRecord().getMatch_id().getId() + "/view";
 	}
 
 	@RequestMapping(value = "/matches/matchRecord/redCard/add/{matchRecordId}/{playerId}")
@@ -352,14 +352,14 @@ public class MatchRecordController {
 
 		FootballPlayerMatchStatistic fpms = this.footballPlayerMatchStatisticService.findFootballPlayerMatchStatisticByPlayerIdAndMatchRecordId(playerId, matchRecordId);
 
-		if (!fpms.getMatchRecord().getMatch().getReferee().getUser().getUsername().equals(currentPrincipalName)) {
+		if (!fpms.getMatchRecord().getMatch_id().getReferee().getUser().getUsername().equals(currentPrincipalName)) {
 			throw new CredentialException();
 		}
 		fpms.setRed_cards(fpms.getRed_cards() + 1);
 
 		this.footballPlayerMatchStatisticService.saveFootballPlayerStatistic(fpms);
 
-		return "redirect:/matches/matchRecord/" + fpms.getMatchRecord().getMatch().getId() + "/view";
+		return "redirect:/matches/matchRecord/" + fpms.getMatchRecord().getMatch_id().getId() + "/view";
 	}
 
 	@RequestMapping(value = "/matches/matchRecord/redCard/substract/{matchRecordId}/{playerId}")
@@ -370,7 +370,7 @@ public class MatchRecordController {
 
 		FootballPlayerMatchStatistic fpms = this.footballPlayerMatchStatisticService.findFootballPlayerMatchStatisticByPlayerIdAndMatchRecordId(playerId, matchRecordId);
 
-		if (!fpms.getMatchRecord().getMatch().getReferee().getUser().getUsername().equals(currentPrincipalName)) {
+		if (!fpms.getMatchRecord().getMatch_id().getReferee().getUser().getUsername().equals(currentPrincipalName)) {
 			throw new CredentialException();
 		}
 
@@ -382,7 +382,7 @@ public class MatchRecordController {
 
 		this.footballPlayerMatchStatisticService.saveFootballPlayerStatistic(fpms);
 
-		return "redirect:/matches/matchRecord/" + fpms.getMatchRecord().getMatch().getId() + "/view";
+		return "redirect:/matches/matchRecord/" + fpms.getMatchRecord().getMatch_id().getId() + "/view";
 	}
 
 	@RequestMapping(value = "/matches/matchRecord/yellowCard/add/{matchRecordId}/{playerId}")
@@ -393,7 +393,7 @@ public class MatchRecordController {
 
 		FootballPlayerMatchStatistic fpms = this.footballPlayerMatchStatisticService.findFootballPlayerMatchStatisticByPlayerIdAndMatchRecordId(playerId, matchRecordId);
 
-		if (!fpms.getMatchRecord().getMatch().getReferee().getUser().getUsername().equals(currentPrincipalName)) {
+		if (!fpms.getMatchRecord().getMatch_id().getReferee().getUser().getUsername().equals(currentPrincipalName)) {
 			throw new CredentialException();
 		}
 
@@ -401,7 +401,7 @@ public class MatchRecordController {
 
 		this.footballPlayerMatchStatisticService.saveFootballPlayerStatistic(fpms);
 
-		return "redirect:/matches/matchRecord/" + fpms.getMatchRecord().getMatch().getId() + "/view";
+		return "redirect:/matches/matchRecord/" + fpms.getMatchRecord().getMatch_id().getId() + "/view";
 	}
 
 	@RequestMapping(value = "/matches/matchRecord/yellowCard/substract/{matchRecordId}/{playerId}")
@@ -412,7 +412,7 @@ public class MatchRecordController {
 
 		FootballPlayerMatchStatistic fpms = this.footballPlayerMatchStatisticService.findFootballPlayerMatchStatisticByPlayerIdAndMatchRecordId(playerId, matchRecordId);
 
-		if (!fpms.getMatchRecord().getMatch().getReferee().getUser().getUsername().equals(currentPrincipalName)) {
+		if (!fpms.getMatchRecord().getMatch_id().getReferee().getUser().getUsername().equals(currentPrincipalName)) {
 			throw new CredentialException();
 		}
 
@@ -424,7 +424,7 @@ public class MatchRecordController {
 
 		this.footballPlayerMatchStatisticService.saveFootballPlayerStatistic(fpms);
 
-		return "redirect:/matches/matchRecord/" + fpms.getMatchRecord().getMatch().getId() + "/view";
+		return "redirect:/matches/matchRecord/" + fpms.getMatchRecord().getMatch_id().getId() + "/view";
 	}
 
 	@RequestMapping(value = "/matches/matchRecord/receivedGoals/add/{matchRecordId}/{playerId}")
@@ -435,7 +435,7 @@ public class MatchRecordController {
 
 		FootballPlayerMatchStatistic fpms = this.footballPlayerMatchStatisticService.findFootballPlayerMatchStatisticByPlayerIdAndMatchRecordId(playerId, matchRecordId);
 
-		if (!fpms.getMatchRecord().getMatch().getReferee().getUser().getUsername().equals(currentPrincipalName)) {
+		if (!fpms.getMatchRecord().getMatch_id().getReferee().getUser().getUsername().equals(currentPrincipalName)) {
 			throw new CredentialException();
 		}
 
@@ -443,7 +443,7 @@ public class MatchRecordController {
 
 		this.footballPlayerMatchStatisticService.saveFootballPlayerStatistic(fpms);
 
-		return "redirect:/matches/matchRecord/" + fpms.getMatchRecord().getMatch().getId() + "/view";
+		return "redirect:/matches/matchRecord/" + fpms.getMatchRecord().getMatch_id().getId() + "/view";
 	}
 
 	@RequestMapping(value = "/matches/matchRecord/receivedGoals/substract/{matchRecordId}/{playerId}")
@@ -454,7 +454,7 @@ public class MatchRecordController {
 
 		FootballPlayerMatchStatistic fpms = this.footballPlayerMatchStatisticService.findFootballPlayerMatchStatisticByPlayerIdAndMatchRecordId(playerId, matchRecordId);
 
-		if (!fpms.getMatchRecord().getMatch().getReferee().getUser().getUsername().equals(currentPrincipalName)) {
+		if (!fpms.getMatchRecord().getMatch_id().getReferee().getUser().getUsername().equals(currentPrincipalName)) {
 			throw new CredentialException();
 		}
 
@@ -466,7 +466,7 @@ public class MatchRecordController {
 
 		this.footballPlayerMatchStatisticService.saveFootballPlayerStatistic(fpms);
 
-		return "redirect:/matches/matchRecord/" + fpms.getMatchRecord().getMatch().getId() + "/view";
+		return "redirect:/matches/matchRecord/" + fpms.getMatchRecord().getMatch_id().getId() + "/view";
 	}
 
 }

@@ -23,7 +23,7 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Entity
-@Table(name = "Matches")
+@Table(name = "matches")
 public class Match extends BaseEntity {
 
 	@Column(name = "title")
