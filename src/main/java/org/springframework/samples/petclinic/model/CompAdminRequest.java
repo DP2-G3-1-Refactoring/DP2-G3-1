@@ -17,7 +17,7 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Entity
-@Table(name = "comp_Admin_Requests")
+@Table(name = "comp_admin_requests")
 public class CompAdminRequest extends BaseEntity {
 
 	@NotEmpty

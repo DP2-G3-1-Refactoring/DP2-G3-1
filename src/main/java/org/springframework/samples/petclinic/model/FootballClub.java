@@ -39,7 +39,7 @@ import lombok.Setter;
 @Setter
 
 @Entity
-@Table(name = "football_Clubs")
+@Table(name = "football_clubs")
 public class FootballClub extends BaseEntity implements Serializable {
 
 	private static final long	serialVersionUID	= 1L;

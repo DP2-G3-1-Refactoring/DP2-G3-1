@@ -16,7 +16,7 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Entity
-@Table(name = "competition_Admins")
+@Table(name = "competition_admins")
 public class CompetitionAdmin extends Person {
 
 	@Column(name = "telephone")

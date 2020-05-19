@@ -26,7 +26,7 @@ import lombok.Setter;
 @Setter
 
 @Entity
-@Table(name = "football_Players")
+@Table(name = "football_players")
 public class FootballPlayer extends Person {
 
 	//Atributos
