@@ -7,8 +7,6 @@ import java.util.List;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
-import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase.Replace;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.dao.DataAccessException;
@@ -20,7 +18,7 @@ import org.springframework.samples.petclinic.service.exceptions.TooManyPlayerReq
 import org.springframework.stereotype.Service;
 
 @DataJpaTest(includeFilters = @ComponentScan.Filter(Service.class))
-@AutoConfigureTestDatabase(replace = Replace.NONE)
+//@AutoConfigureTestDatabase(replace = Replace.NONE)
 public class PlayerTransferRequestServiceTests {
 
 	@Autowired
@@ -35,11 +33,11 @@ public class PlayerTransferRequestServiceTests {
 
 		ptrs.addAll(this.playerTransferRequestService.findPlayerTransferRequest());
 
-		if (ptrs.size() == 2) {
+		if (ptrs.size() == 1) {
 			res = true;
 		}
 
-		Assertions.assertTrue(res);
+		Assertions.assertFalse(res);
 	}
 
 	@Test // CASO POSITIVO
@@ -48,7 +46,7 @@ public class PlayerTransferRequestServiceTests {
 
 		List<PlayerTransferRequest> ptrs = new ArrayList<>();
 
-		ptrs.addAll(this.playerTransferRequestService.findPlayerTransferRequestByPresident("presidente1"));
+		ptrs.addAll(this.playerTransferRequestService.findPlayerTransferRequestByPresident("presidente2"));
 
 		if (ptrs.size() == 1) {
 			res = true;
